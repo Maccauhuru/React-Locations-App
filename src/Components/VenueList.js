@@ -1,5 +1,6 @@
 import React from "react";
 import fspowered from "../images/powered-foursquare.png";
+const listitem = "listitem";
 
 const VenueList = props => {
   const showInfo = place => {
@@ -8,6 +9,7 @@ const VenueList = props => {
 
   return (
     <section
+      role="list"
       id="venue-list"
       className={props.openList ? "open" : "closed"}
     >
@@ -29,6 +31,7 @@ const VenueList = props => {
             return (
               <li
                 key={index}
+                role={listitem}
                 tabIndex="0"
                 onClick={() => showInfo(venue)}
               >

@@ -23,6 +23,10 @@ class App extends Component {
     window.initMap = this.initMap;
   };
 
+  gm_authFailure=()=>{
+  alert("oops.. sumething went wrong.Please try again later")
+  };
+
   // get venues data from FourSquare API using axios
   // then set state
   getVenues = () => {
@@ -50,6 +54,7 @@ class App extends Component {
       })
       .catch(error => {
         console.log(error);
+        this.gm_authFailure();
       });
   };
 
@@ -68,6 +73,8 @@ class App extends Component {
         styles: mapStyle
       }
     );
+
+
 
     const infowindow = new window.google.maps.InfoWindow();
     this.state.venues.map(myVenue => {
