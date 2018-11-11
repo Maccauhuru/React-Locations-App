@@ -1,0 +1,223 @@
+/* --------------------------------------------------------------- */
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+}
+
+/* Toggle Menu Button Style -------------------------------------- */
+#toggle-menu {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 101;
+
+  transform: translate(200px, 0);
+  transition: transform 0.3s ease-in-out;
+}
+
+#toggle-menu i {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #444;
+  background-image: url("../icons/round_menu_white_18dp.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+  font-size: 0;
+}
+
+#toggle-menu.open i {
+  background-image: url("../icons/round_close_white_18dp.png");
+}
+
+#map {
+  height: 100vh;
+  width: 80vw;
+}
+
+
+.infowindow {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  width: 250px;
+}
+.infowindow h2 {
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  color: #4682B4;
+}
+
+.infowindow h3 {
+  font-size: 1rem;
+  padding: 0;
+  margin: 5px;
+  width: 100%;
+}
+
+.infowindow .category-img {
+  background-color:#4682B4;
+  width: 50px;
+  height: 3.125rem;
+  margin: 0.3125rem;
+}
+
+.infowindow .location {
+  max-width: 180px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin: 5px;
+  flex-grow: 1;
+  text-align: right;
+  font-size: 1.1em;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+}
+
+.infowindow a {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 500;
+  text-decoration: none;
+  color: #4682B4;
+  width: 80%;
+  padding: 5px;
+  margin: 15px auto 5px;
+  border: 1px solid #4682B4;
+  border-radius: 5px;
+  box-shadow: 1px 3px 5px #ccc;
+}
+
+.infowindow a:hover,
+.infowindow a:active {
+  background-color: #eee;
+}
+
+.infowindow a img {
+  vertical-align: middle;
+  padding-left: 10px;
+  height: 30px;
+}
+
+/* Side Bar Style ------------------------------------------------ */
+#venue-list {
+  width: 20%;
+  min-width: 280px;
+  color: #fff;
+  background-color:#191970;
+;
+  height: 100vh;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  transition: transform 0.3s ease-in-out;
+}
+#venue-list h1 {
+  margin: 20px auto;
+  font-variant: small-caps;
+  font-size: 1.8em;
+}
+
+.search-input {
+  font-size: 1em;
+  width: 80%;
+  height: 30px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+#venue-list ul {
+  background-color: #191970;
+  padding: 0 10px;
+  height: 63%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#venue-list li {
+  list-style: none;
+  /* border-top: solid 1px #ccc; */
+  border-bottom: solid 1px #ccc;
+  padding: 1.25rem;
+  /* margin: 10px; */
+}
+
+#venue-list li:hover {
+  cursor: pointer;
+  background-color: #B0C4DE;
+  color:#000;
+  font-weight: 700;
+}
+#venue-list a {
+  margin-top: auto;
+}
+
+#venue-list img {
+  width: 90%;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+/* Scrollbar Styles */
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 10px;
+}
+
+/* Media Query --------------------------------------------------- */
+@media (max-width: 425px) {
+  main {
+    display: block;
+    position: relative;
+  }
+
+  #toggle-menu {
+    transform: translate(0, 0);
+  }
+
+  #map {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+  }
+
+  #venue-list {
+    z-index: 100;
+    position: absolute;
+  }
+
+  #venue-list.open {
+    transform: translate(0, 0);
+  }
+
+  #venue-list.closed {
+    transform: translate(-300px, 0);
+  }
+}
