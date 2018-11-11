@@ -24,7 +24,8 @@ class App extends Component {
   };
 
   gm_authFailure=()=>{
-  alert("oops.. sumething went wrong.Please try again later")
+  alert("oops.. something went wrong.Please try again later");
+  window.gm_authFailure = this.gm_authFailure;
   };
 
   // get venues data from FourSquare API using axios
@@ -168,6 +169,9 @@ const loadScript=(url)=> {
   script.async = true;
   script.defer = true;
   index.parentNode.insertBefore(script, index);
+  script.onerror =()=>{
+    alert('Request could not be completed, please try again later');
+  }
 }
 
 export default App;
