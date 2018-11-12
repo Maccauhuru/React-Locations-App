@@ -1,6 +1,7 @@
 import React from "react";
 import fspowered from "../images/powered-foursquare.png";
 const listitem = "listitem";
+const  list = "list";
 
 const VenueList = props => {
   const showInfo = place => {
@@ -9,7 +10,6 @@ const VenueList = props => {
 
   return (
     <section
-      role="list"
       id="venue-list"
       className={props.openList ? "open" : "closed"}
     >
@@ -25,7 +25,7 @@ const VenueList = props => {
         }
       />
       {props.venues.length > 0 ? (
-        <ul>
+        <ul role={list}>
           {props.venues.map((venue, index) => {
             // console.log(venue);
             return (
